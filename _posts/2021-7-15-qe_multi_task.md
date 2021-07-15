@@ -30,31 +30,31 @@ idea&方法
 - 在qe任务上微调M-BERT
 - 打分任务：源句s和目标句t，计算cosine相似度
   - 也尝试了s和t concat起来过一个线性层，但是效果不够好
-  ![L_score](/images/posts/202107/qe_multi_task_1.png)
+  ![L_score](/images/2021/0715_1.png)
 - 排名任务：分别计算两个翻译t，和源句的欧氏距离，希望好的翻译能比不好的翻译 至少离源句更近\epsilon
   - 也尝试了cosine相似度，效果不够好
-  ![L_rank](/images/posts/202107/qe_multi_task_2.png)
+  ![L_rank](/images/2021/0715_2.png)
 - 多任务学习：每个step包括两个batch的训练数据，分别是打分和排名；打分使用DA数据，排名使用RR数据
 
 实验
 - 配置
-  - 训练数据
-  ![traindata](/images/posts/202107/qe_multi_task_3.png)
+  - 训练数据                           
+  ![traindata](/images/2021/0715_3.png)
   - 两个任务一起学习，但是保存DA做得最好的ckpt，因为最终目标是da
-  - 模型
-  ![models](/images/posts/202107/qe_multi_task_4.png)
+  - 模型                                   
+  ![models](/images/2021/0715_4.png)
 - 实验结果-Segment-Level
-  ![result1](/images/posts/202107/qe_multi_task_5.png)
-  ![result2](/images/posts/202107/qe_multi_task_6.png)
-  ![result3](/images/posts/202107/qe_multi_task_7.png)
+  ![result1](/images/2021/0715_5.png)
+  ![result2](/images/2021/0715_6.png)
+  ![result3](/images/2021/0715_7.png)
   - 多任务学习效果优于只使用DA数据
   - XLM-RoBERTa 优于 M-BERT
   - 无监督语言对效果也好
 - 不同的pooling策略：MEAN最好
-  ![pooling](/images/posts/202107/qe_multi_task_8.png)
+  ![pooling](/images/2021/0715_8.png)
 - 实验结果-System-Level
-  ![result4](/images/posts/202107/qe_multi_task_9.png)
-  ![result5](/images/posts/202107/qe_multi_task_10.png)
+  ![result4](/images/2021/0715_9.png)
+  ![result5](/images/2021/0715_10.png)
   - System-Level 的话，可以用ref的metric有更好效果，qe的话就在不同语言对之间不太稳定
   - 本文模型倾向于为System-Level评估产生比Segment-Level评估更不稳定的结果，这可能是因为Segment-Level相关性是使用大约 2000 个语言对的段来计算的，而System-Level 一个语言对仅使用大约 10 个系统计算相关性，因此Segment-Level相关性更稳定。
 
