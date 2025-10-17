@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间轴 - mello的手绘本</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>mello的手绘本</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="timeline.html" class="active">时间轴</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="timeline-header">
+        <div class="container">
+            <h2>创作时间轴</h2>
+            <p>按时间查看我的练习和创作</p>
+        </div>
+    </section>
+
+    <section class="contribution-graph">
+        <div class="container">
+            <h3>创作热力图</h3>
+            <div class="heatmap-container" id="heatmap-container">
+                <!-- 热力图将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-works">
+        <div class="container">
+            <h3>作品列表</h3>
+            <div class="filter-container">
+                <div class="date-filter">
+                    <label for="date-filter">选择日期：</label>
+                    <input type="date" id="date-filter">
+                    <button id="clear-filter">重置</button>
+                </div>
+            </div>
+            <div class="works-timeline" id="timeline-works-container">
+                <!-- 时间轴作品将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 mello的手绘本. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/timeline.js"></script>
+</body>
+</html>

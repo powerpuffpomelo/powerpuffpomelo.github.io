@@ -1,18 +1,50 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mello的手绘本</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>mello的手绘本</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="timeline.html">时间轴</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+    <section class="hero">
+        <div class="container">
+            <h2>欢迎来到我的美术实验室</h2>
+            <p>这里展示了我的创作历程和艺术作品</p>
+        </div>
+    </section>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+    <section class="featured-works">
+        <div class="container">
+            <h2>主推作品</h2>
+            <div class="works-grid" id="featured-works-container">
+                <!-- 作品将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 mello的手绘本. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

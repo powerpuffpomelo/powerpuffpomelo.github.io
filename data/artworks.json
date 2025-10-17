@@ -1,0 +1,28 @@
+{
+  "artworks": [
+    {
+      "id": 1,
+      "title": "夏日风景",
+      "date": "2025-08-17",
+      "description": "夏日的自然风景练习",
+      "image": "images/2025/08/20250817.png",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "人物速写",
+      "date": "2025-08-18",
+      "description": "人物动态速写练习",
+      "image": "images/2025/08/20250818.png",
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "秋季场景",
+      "date": "2025-10-11",
+      "description": "秋季场景色彩练习",
+      "image": "images/2025/10/20251011.png",
+      "featured": true
+    }
+  ]
+}
