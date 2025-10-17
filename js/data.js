@@ -11,24 +11,21 @@ async function loadArtworksData() {
             const data = await response.json();
             // 将作品信息转换为以图片路径为键的对象，方便查找
             data.artworks.forEach(artwork => {
-                // 将旧路径转换为新路径
-                const oldPath = artwork.image;
-                const newPath = oldPath.replace('images/', 'data/images/');
-                artworksInfo[newPath] = artwork;
+                artworksInfo[artwork.image] = artwork;
             });
         } catch (error) {
             console.log('未找到作品信息文件或格式不正确，将只使用图片文件名作为信息');
         }
 
         // 扫描图片目录
-        const years = await scanDirectory('/data/images');
+        const years = await scanDirectory('data/images');
         
         // 处理扫描结果
         for (const year of years) {
-            const months = await scanDirectory(`/data/images/${year}`);
+            const months = await scanDirectory(`data/images/${year}`);
             
             for (const month of months) {
-                const images = await scanDirectory(`/data/images/${year}/${month}`);
+                const images = await scanDirectory(`data/images/${year}/${month}`);
                 
                 for (const image of images) {
                     const imagePath = `data/images/${year}/${month}/${image}`;
@@ -69,7 +66,7 @@ async function loadArtworksData() {
 // 扫描目录并返回文件/文件夹列表
 async function scanDirectory(path) {
     try {
-        const response = await fetch(`${path}/?scandir`);
+        const response = await fetch(path);
         if (!response.ok) return [];
         
         const text = await response.text();

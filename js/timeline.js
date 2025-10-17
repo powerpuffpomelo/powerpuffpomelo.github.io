@@ -354,8 +354,7 @@ function createWorkItem(artwork) {
     workItem.className = 'work-item';
     workItem.dataset.id = artwork.id;
 
-    // 修正图片路径，添加 data/ 前缀
-    const imagePath = `data/${artwork.image}`;
+    const imagePath = artwork.image;
 
     workItem.innerHTML = `
         <div class="work-image">
