@@ -353,22 +353,25 @@ function createWorkItem(artwork) {
     const workItem = document.createElement('div');
     workItem.className = 'work-item';
     workItem.dataset.id = artwork.id;
-    
+
+    // 修正图片路径，添加 data/ 前缀
+    const imagePath = `data/${artwork.image}`;
+
     workItem.innerHTML = `
         <div class="work-image">
-            <img src="${artwork.image}" alt="${artwork.title}" loading="lazy">
+            <img src="${imagePath}" alt="${artwork.title}" loading="lazy">
         </div>
         <div class="work-info">
             <h3>${artwork.title}</h3>
             <div class="description">${artwork.description}</div>
         </div>
     `;
-    
+
     // 添加点击事件，打开图片查看器
     workItem.querySelector('.work-image').addEventListener('click', function() {
-        openImageViewer(artwork.image, artwork.title);
+        openImageViewer(imagePath, artwork.title);
     });
-    
+
     return workItem;
 }
 
