@@ -354,11 +354,9 @@ function createWorkItem(artwork) {
     workItem.className = 'work-item';
     workItem.dataset.id = artwork.id;
 
-    const imagePath = artwork.image;
-
     workItem.innerHTML = `
         <div class="work-image">
-            <img src="${imagePath}" alt="${artwork.title}" loading="lazy">
+            <img src="${artwork.image}" alt="${artwork.title}" loading="lazy">
         </div>
         <div class="work-info">
             <h3>${artwork.title}</h3>
@@ -368,7 +366,7 @@ function createWorkItem(artwork) {
 
     // 添加点击事件，打开图片查看器
     workItem.querySelector('.work-image').addEventListener('click', function() {
-        openImageViewer(imagePath, artwork.title);
+        openImageViewer(artwork.image, artwork.title);
     });
 
     return workItem;
